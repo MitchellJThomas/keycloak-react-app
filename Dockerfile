@@ -2,7 +2,8 @@ FROM node:alpine as build-deps
 WORKDIR /usr/src/app
 COPY package.json yarn.lock ./
 RUN yarn
-COPY src ./
+COPY src /usr/src/app/src
+COPY public /usr/src/app/public
 RUN yarn build
 
 FROM nginx:alpine
