@@ -17,4 +17,5 @@ jobs:
         IMAGE_NAME="docker.pkg.github.com/$LOWER_REPO:$(date +%s)"
         docker build . --file Dockerfile --tag $IMAGE_NAME
         docker login -u $(dirname $GITHUB_REPOSITORY) -p ${{ secrets.GITHUB_TOKEN }} docker.pkg.github.com
+        echo "Pushing docker image $IMAGE_NAME"
         docker push $IMAGE_NAME
