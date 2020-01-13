@@ -5,10 +5,14 @@ on: [push]
 jobs:
 
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v1
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag $(basename $GITHUB_REPOSITORY):$(date +%s)
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Build and Push the Docker image
+      run: |
+        docker build . --file Dockerfile --tag  docker.pkg.github.com/$GITHUB_REPOSITORY:$(date +%s)
+        docker login -u $(dirname $GITHUB_REPOSITORY) -p ${{ secrets.GITHUB_TOKEN }} docker.pkg.github.com
+        docker push docker.pkg.github.com/$GITHUB_REPOSITORY:$(date +%s)
