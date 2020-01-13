@@ -14,7 +14,7 @@ jobs:
     - name: Build and Push the Docker image
       run: |
         LOWER_REPO=$(echo $GITHUB_REPOSITORY |  tr '[:upper:]' '[:lower:]' )
-        IMAGE_NAME="docker.pkg.github.com/$LOWER_REPO:$(date +%s)"
+        IMAGE_NAME="docker.pkg.github.com/$LOWER_REPO/$(basename $LOWER_REPO):$(date +%s)"
         echo "Building docker image '$IMAGE_NAME'"
         docker build . --file Dockerfile --tag $IMAGE_NAME
         echo ${{ secrets.GITHUB_TOKEN }} | docker login --username $(dirname $GITHUB_REPOSITORY) --password-stdin docker.pkg.github.com
