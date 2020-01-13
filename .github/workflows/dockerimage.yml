@@ -12,8 +12,9 @@ jobs:
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
     - name: Build and Push the Docker image
+      env:
+        IMAGE_NAME:"docker.pkg.github.com /$(echo $GITHUB_REPOSITORY |  tr '[:upper:]' '[:lower:]' ):$(date +%s)"
       run: |
-        image_name = "docker.pkg.github.com /$(echo $GITHUB_REPOSITORY |  tr '[:upper:]' '[:lower:]' ):$(date +%s)"
-        docker build . --file Dockerfile --tag $image_name
+        docker build . --file Dockerfile --tag $IMAGE_NAME
         docker login -u $(dirname $GITHUB_REPOSITORY) -p ${{ secrets.GITHUB_TOKEN }} docker.pkg.github.com
-        docker push $image_name
+        docker push $IMAGE_NAME
