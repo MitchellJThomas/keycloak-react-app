@@ -16,7 +16,7 @@ jobs:
         LOWER_REPO=$(echo $GITHUB_REPOSITORY |  tr '[:upper:]' '[:lower:]' )
         IMAGE_NAME="docker.pkg.github.com/$LOWER_REPO/$(basename $LOWER_REPO):${GITHUB_SHA::8}"
         echo "Building docker image '$IMAGE_NAME'"
-        docker build . --file Dockerfile --tag $IMAGE_NAME --label "github-commit:$GITHUB_SHA" --label "github-repo:$GITHUB_REPOSITORY"
+        docker build . --file Dockerfile --tag $IMAGE_NAME --label "github-commit=$GITHUB_SHA" --label "github-repo=$GITHUB_REPOSITORY"
         echo ${{ secrets.GITHUB_TOKEN }} | docker login --username $(dirname $GITHUB_REPOSITORY) --password-stdin docker.pkg.github.com
         echo "Pushing docker image '$IMAGE_NAME'"
         docker push $IMAGE_NAME
