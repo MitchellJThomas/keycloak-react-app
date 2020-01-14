@@ -3,8 +3,6 @@ import Keycloak from 'keycloak-js';
 import UserInfo from './UserInfo';
 import Logout from './Logout';
 
-const keycloak = Keycloak('/config/keycloak.json');
-
 // const keycloak = Keycloak({
 //   realm: "MyDemo",
 //   auth-server-url: "http://localhost:8080/auth",
@@ -22,7 +20,7 @@ class Secured extends Component {
   }
 
   componentDidMount() {
-    const keycloak = Keycloak('/keycloak.json');
+    const keycloak = Keycloak('/config/keycloak.json');
     keycloak.init({onLoad: 'login-required'}).then(authenticated => {
       this.setState({ keycloak: keycloak, authenticated: authenticated })
     })
