@@ -3,7 +3,7 @@ import Keycloak from 'keycloak-js';
 import UserInfo from './UserInfo';
 import Logout from './Logout';
 
-const keycloak = Keycloak('/keycloak.json');
+const keycloak = Keycloak('/config/keycloak.json');
 
 // const keycloak = Keycloak({
 //   realm: "MyDemo",
