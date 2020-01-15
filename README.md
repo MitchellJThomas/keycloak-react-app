@@ -3,7 +3,7 @@ A single page web React app which utilizes a Keycloak IDP server.
 
 This app was shamelessly copied from this [Scalac Keycloak
 example](https://scalac.io/user-authentication-keycloak-1/) Thank you
-Scalac for the code.  However this repo is different in that it builds using a Docker trick - no need to install Node - and then serves the built version to your browser using nginx (vs Node), provided you have Keycloak the proper json file mounted as a volume mount. 
+Scalac for the code.  However this repo is different in that it builds using a Docker trick - no need to install Node - and then serves the built version to your browser using nginx (vs Node), provided you have the proper Keycloak installation json file mounted using a volume mount. 
 
 # Github Actions and Packages
 
