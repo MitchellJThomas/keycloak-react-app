@@ -9,7 +9,7 @@ Scalac for the code.  However this repo is different in that it builds using a D
 
 Commits to this repository automatically trigger the creation of [the
 Docker image via Github Actions, available in the packages](packages).  See the
-.github/workflows/dockerimage.yml file for how the image is built and
+[.github/workflows/dockerimage.yml](.github/workflows/dockerimage.yml) file for how the image is built and
 published.
 
 # Local development
@@ -18,8 +18,8 @@ To develop on your local system, you will need to have [Docker
 installed](https://www.docker.com/products/docker-desktop), the
 [Keycloak image](https://hub.docker.com/r/jboss/keycloak/) to run the
 Keycloak server and of course your favorite editor... [I like Aquamacs
-(plug)](http://aquamacs.org/).
+](http://aquamacs.org/) (shamless plug).
 
-Building the image locally can be done using the provided build-run.sh script.  You may want to edit it to change system specific details such as open port numbers.
+Building the image locally can be done using the provided [build-run.sh](build-run.sh) script.  You may want to edit it to change system specific details such as open port numbers.
 
-To specify the proper server you must download the installation json file for the provided client, replacing it with the keycloak.json file currently in this repository.
+To specify the proper server you must download the installation json file for the provided client, replacing it with the [keycloak.json](keycloak.json) file currently in this repository.
