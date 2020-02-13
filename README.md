@@ -33,6 +33,11 @@ If you make changes to Keycloak, particularly changes to the OIDC
 client attributes you may need to replace the [keycloak.json](keycloak.json) file with
 the one downloaded from the Keycloak server.
 
+The password for the `admin` user can be found in the
+[docker-compose.yaml](docker-compose.yaml) file. Both the username
+and password are configured via environment variables which can be
+changed either in the docker-compose.yaml file or on the
+docker-compose command line in the build.sh file.
 
 # Github Actions and Packages
 
