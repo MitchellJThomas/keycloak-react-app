@@ -28,7 +28,7 @@ services:
   keycloak:
       image: quay.io/keycloak/keycloak:8.0.1
       volumes:
-        -type: bind
+        - type: bind
           source: ./realm-export.json
           target: /tmp/realm-export.json
       environment:
