@@ -15,7 +15,7 @@ database using the keycloak.json file.  Once its running you
 now can experiment with the React code and learn about Keycloak
 features using its administration UI.
 
-# Getting started
+]# Getting started
 
 To develop on your local system, you will need to have [Docker
 Composed installed](https://docs.docker.com/compose/install/) and a
@@ -39,6 +39,10 @@ and password are configured via environment variables which can be
 changed either in the docker-compose.yaml file or on the
 docker-compose command line in the build.sh file.
 
+The default port for the React UI is 3000 and the Keycloak UI
+is 8080.  Use the `docker ps` command can to determine the
+actual ports for your system.
+
 # Github Actions and Packages
 
 Commits to this repository automatically trigger the creation of [the
@@ -49,4 +53,3 @@ published.
 Note: I had intended to use the Github built image for sharing the built React App with others.
 However as of this writing Docker images build using Github packages
 are not publicly accessable making them difficult to easily share.
-
