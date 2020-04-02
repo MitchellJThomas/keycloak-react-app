@@ -40,7 +40,7 @@ changed either in the docker-compose.yaml file or on the
 docker-compose command line in the build.sh file.
 
 The default port for the React UI is 3000 and the Keycloak UI
-is 8080.  Use the `docker ps` command can to determine the
+is 8080.  Use the `docker ps` command to determine the
 actual ports for your system.
 
 # Github Actions and Packages
