@@ -15,7 +15,7 @@ database using the keycloak.json file.  Once its running you
 now can experiment with the React code and learn about Keycloak
 features using its administration UI.
 
-]# Getting started
+# Getting started
 
 To develop on your local system, you will need to have [Docker
 Composed installed](https://docs.docker.com/compose/install/) and a
