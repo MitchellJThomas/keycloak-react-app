@@ -47,7 +47,7 @@ actual ports for your system.
 
 The docker compose file builds a keycloak-react-app container as well
 as downloading postgres and keycloak. Use the [clean-up.sh](clean-up.sh) script to
-remove everything from your system.
+remove these containers from your system.
 
 # Github Actions and Packages
 
