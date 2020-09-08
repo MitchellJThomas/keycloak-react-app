@@ -43,6 +43,12 @@ The default port for the React UI is 3000 and the Keycloak UI
 is 8080.  Use the `docker ps` command to determine the
 actual ports for your system.
 
+# Cleaning up
+
+The docker compose file builds a keycloak-react-app container as well
+as downloading postgres and keycloak. Use the [clean-up.sh](clean-up.sh) script to
+remove everything from your system.
+
 # Github Actions and Packages
 
 Commits to this repository automatically trigger the creation of [the
