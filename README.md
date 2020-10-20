@@ -46,7 +46,8 @@ actual ports for your system.
 # The environment and logging in
 
 When the docker compose images are running the end result is a
-Keycloak server with a `React App Realm`, a `react-app` client are defined.
+Keycloak server with a `React App Realm` and a `react-app` client
+defined in that realm.
 
 **To test the secured login you must add a user to the `React App
 Realm`**
