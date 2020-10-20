@@ -5,4 +5,4 @@
 
 docker-compose -f docker-compose.yaml up --build
 # On a Mac this opens Safari
-open http://localhost:3000
+# open http://localhost:3000

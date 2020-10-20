@@ -18,7 +18,7 @@ services:
     depends_on:
       - keycloak
   postgres:
-      image: postgres
+      image: postgres:13
       volumes:
         - postgres_data:/var/lib/postgresql/data
       environment:

@@ -1,4 +1,4 @@
-docker-compose rm
+docker-compose rm -f -v -s
 docker volume rm keycloak-react-app_postgres_data
 docker network rm keycloak-react-app_default
 docker rmi keycloak-react-app:latest

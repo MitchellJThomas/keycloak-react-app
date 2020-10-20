@@ -1,5 +1,5 @@
 # keycloak-react-app
-A single page web React app which utilizes a Keycloak IDP server.
+A single page web React app which utilizes the [Keycloak javascript adapter](https://github.com/keycloak/keycloak/tree/master/adapters/oidc/js/src/main/resources) and the [Keycloak IDP server](https://github.com/keycloak/keycloak).
 
 This app was shamelessly copied from this [Scalac Keycloak
 example](https://scalac.io/user-authentication-keycloak-1/) Thank you
@@ -42,6 +42,20 @@ docker-compose command line in the build.sh file.
 The default port for the React UI is [3000](http://localhost:3000/) and the Keycloak UI
 is [8080](https://locahost:8080/).  Use the `docker ps` command to determine the
 actual ports for your system.
+
+# The environment and logging in
+
+When the docker compose images are running the end result is a
+Keycloak server with a `React App Realm`, a `react-app` client are defined.
+
+**To test the secured login you must add a user to the `React App
+Realm`**
+
+When visiting the [React UI](http://localhost:3000/) you should see a
+link to the `secured component`.  Clicking on that link will re-direct your
+browser to the Keycloak server.  Enter the user and password you
+created above and the UI changes to reveal secured content e.g. the user Name and
+Email.
 
 # Cleaning up
 

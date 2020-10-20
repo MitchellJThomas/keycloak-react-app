@@ -1,5 +1,5 @@
 {
-  "realm": "master",
+  "realm": "react_app_realm",
   "auth-server-url": "http://localhost:8080/auth/",
   "ssl-required": "external",
   "resource": "react-app",
