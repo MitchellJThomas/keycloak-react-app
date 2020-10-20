@@ -49,8 +49,9 @@ When the docker compose images are running the end result is a
 Keycloak server with a `React App Realm` and a `react-app` client
 defined in that realm.
 
-**To test the secured login you must add a user to the `React App
-Realm`**
+**Create a user in the Keycloak `React App Realm` using the [Keycloak
+admin UI](https://localhost:8080/) so that you can view the `secured
+compnent` of the React UI**
 
 When visiting the [React UI](http://localhost:3000/) you should see a
 link to the `secured component`.  Clicking on that link will re-direct your
