@@ -40,7 +40,7 @@ changed either in the docker-compose.yaml file or on the
 docker-compose command line in the build.sh file.
 
 The default port for the React UI is [3000](http://localhost:3000/) and the Keycloak UI
-is [8080](https://locahost:8080/).  Use the `docker ps` command to determine the
+is [8080](http://locahost:8080/).  Use the `docker ps` command to determine the
 actual ports for your system.
 
 # The environment and logging in
@@ -50,7 +50,7 @@ Keycloak server with a `React App Realm` and a `react-app` client
 defined in that realm.
 
 **Create a user in the Keycloak `React App Realm` using the [Keycloak
-admin UI](https://localhost:8080/) so that you can view the `secured
+admin UI](http://localhost:8080/) so that you can view the `secured
 compnent` of the React UI**
 
 When visiting the [React UI](http://localhost:3000/) you should see a
