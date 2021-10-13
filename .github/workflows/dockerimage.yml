@@ -1,22 +1,40 @@
 name: Docker Image CI
 
-on: [push]
+on:
+  push:
+    branches: ['main']
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-
-  build:
+  build-and-push-image:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
 
     steps:
-    - uses: actions/checkout@v1
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-    - name: Build and Push the Docker image
-      run: |
-        LOWER_REPO=$(echo $GITHUB_REPOSITORY |  tr '[:upper:]' '[:lower:]' )
-        IMAGE_NAME="docker.pkg.github.com/$LOWER_REPO/$(basename $LOWER_REPO):${GITHUB_SHA::8}"
-        echo "Building docker image '$IMAGE_NAME'"
-        docker build . --file Dockerfile --tag $IMAGE_NAME --label "github-commit=$GITHUB_SHA" --label "github-repo=$GITHUB_REPOSITORY"
-        echo ${{ secrets.GITHUB_TOKEN }} | docker login --username $(dirname $GITHUB_REPOSITORY) --password-stdin docker.pkg.github.com
-        echo "Pushing docker image '$IMAGE_NAME'"
-        docker push $IMAGE_NAME
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
