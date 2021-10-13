@@ -17,6 +17,30 @@ features using its administration UI.
 
 # Getting started
 
+To run the React app built from this repository, you will need to have [Docker
+Composed installed](https://docs.docker.com/compose/install/).
+
+Start the nginx server that serves the React app using the provided [run.sh](run.sh) script.
+
+## The environment and logging in
+
+When the docker compose images are running the end result is a
+Keycloak server with a `React App Realm` and a `react-app` client
+defined in that realm.
+
+**Create a user in the Keycloak `React App Realm` using the [Keycloak
+admin UI](http://localhost:8080/) so that you can view the `secured
+component` of the React UI** The password for the `admin` user can be found in the
+[docker-compose.yaml](docker-compose.yaml) file. 
+
+Visit the [React UI](http://localhost:3000/) with a browser and you should see a
+link to the `secured component`.  Clicking on that link will re-direct your
+browser to the Keycloak server.  Enter the user and password you
+created above and the UI changes to reveal secured content e.g. the user Name and
+Email.
+
+# Making changes
+
 To develop on your local system, you will need to have [Docker
 Composed installed](https://docs.docker.com/compose/install/) and a
 your favorite editor... [I like Aquamacs ](http://aquamacs.org/) (shameless plug).
@@ -43,35 +67,16 @@ The default port for the React UI is [3000](http://localhost:3000/) and the Keyc
 is [8080](http://locahost:8080/).  Use the `docker ps` command to determine the
 actual ports for your system.
 
-# The environment and logging in
-
-When the docker compose images are running the end result is a
-Keycloak server with a `React App Realm` and a `react-app` client
-defined in that realm.
-
-**Create a user in the Keycloak `React App Realm` using the [Keycloak
-admin UI](http://localhost:8080/) so that you can view the `secured
-compnent` of the React UI**
-
-When visiting the [React UI](http://localhost:3000/) you should see a
-link to the `secured component`.  Clicking on that link will re-direct your
-browser to the Keycloak server.  Enter the user and password you
-created above and the UI changes to reveal secured content e.g. the user Name and
-Email.
 
 # Cleaning up
 
 The docker compose file builds a keycloak-react-app container as well
-as downloading postgres and keycloak. Use the [clean-up.sh](clean-up.sh) script to
+as downloading Postgres and keycloak. Use the [clean-up.sh](clean-up.sh) script to
 remove these containers from your system.
 
 # Github Actions and Packages
 
-Commits to this repository automatically trigger the creation of [the
-Docker image via Github Actions, available in the packages](packages).  See the
+Commits to this repository automatically trigger the creation of [the keycloack-react-app
+container image via Github Actions, available in the packages](https://github.com/MitchellJThomas?tab=packages&repo_name=keycloak-react-app).  See the
 [.github/workflows/dockerimage.yml](.github/workflows/dockerimage.yml) file for how the image is built and
 published.
-
-Note: I had intended to use the Github built image for sharing the built React App with others.
-However as of this writing Docker images build using Github packages
-are not publicly accessable making them difficult to easily share.
