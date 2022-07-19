@@ -31,7 +31,7 @@ defined in that realm.
 **Create a user in the Keycloak `React App Realm` using the [Keycloak
 admin UI](http://localhost:8080/) so that you can view the `secured
 component` of the React UI** The password for the `admin` user can be found in the
-[docker-compose.yaml](docker-compose.yaml) file. 
+[docker-compose-run.yaml](docker-compose-run.yaml) file.
 
 Visit the [React UI](http://localhost:3000/) with a browser and you should see a
 link to the `secured component`.  Clicking on that link will re-direct your
