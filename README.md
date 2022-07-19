@@ -1,5 +1,5 @@
 # keycloak-react-app
-A single page web React app which utilizes the [Keycloak javascript adapter](https://github.com/keycloak/keycloak/tree/master/adapters/oidc/js/src/main/resources) and the [Keycloak IDP server](https://github.com/keycloak/keycloak).
+A single page web React app which utilizes the [Keycloak javascript adapter](https://www.keycloak.org/docs/latest/securing_apps/index.html#_javascript_adapter) and the [Keycloak IDP server](https://github.com/keycloak/keycloak).
 
 This app was shamelessly copied from this [Scalac Keycloak
 example](https://scalac.io/user-authentication-keycloak-1/) Thank you
@@ -43,7 +43,7 @@ Email.
 
 To develop on your local system, you will need to have [Docker
 Composed installed](https://docs.docker.com/compose/install/) and a
-your favorite editor... [I like Aquamacs ](http://aquamacs.org/) (shameless plug).
+your favorite editor... [I like Emacs for macOS](https://emacsformacos.com/) (shameless plug).
 
 Docker Compose will download the [Keycloak
 image](https://hub.docker.com/r/jboss/keycloak/) to run the Keycloak
